@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'pg'
-gem 'bcrypt'
+gem 'bcrypt', '~> 3.1.7'
 gem 'unicorn'
 gem 'turbolinks'
 gem 'jquery-rails'
@@ -15,7 +15,8 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 group :development, :test do
-  gem 'pry'
+  gem 'pry-rails'
+  gem 'byebug'
   gem 'launchy'
   gem 'capybara'
   gem 'rspec-rails'

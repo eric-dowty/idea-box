@@ -1,0 +1,17 @@
+<%= link_to "Logout", logout_path %>
+
+<h2>Welcome <%= current_user.name %></h2>
+<% if current_user.role == "admin" %>
+  <p><%= link_to "View Categories", admin_categories_path %></p>
+  <p><%= link_to "View Users", admin_users_path %></p>
+<% end %>
+
+<% current_user.ideas.each do |idea| %>
+  <p>
+    <%= link_to idea.title, idea_path(idea) %>
+    <%= link_to "edit", edit_idea_path(idea) %>
+  </p>
+<% end %>
+
+<%= button_to "New Idea", new_idea_path, method: :get %>
+

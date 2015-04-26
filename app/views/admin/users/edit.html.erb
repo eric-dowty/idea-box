@@ -1,0 +1,8 @@
+<h1> <%= @user.username %> </h1>
+
+<%= form_for(:user, url: :admin_user, method: :put) do |f| %>
+  <%= f.text_field :username, :readonly => true %> <br>
+  <%= f.radio_button :role, "admin", checked: @user.role == "admin" %> Admin <br>
+  <%= f.radio_button :role, "default", checked: @user.role == "default" %> Default <br>
+  <%= f.submit "Update" %>
+<% end %>
