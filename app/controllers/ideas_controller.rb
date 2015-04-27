@@ -1,5 +1,7 @@
 class IdeasController < ApplicationController
 
+  before_filter :current_user
+
   def show
     idea = Idea.find_by(id: params[:id])
     
@@ -45,6 +47,12 @@ class IdeasController < ApplicationController
       flash[:errors] = idea.errors.full_messages.join(', ')
       redirect_to new_idea_path
     end
+  end
+
+  def destroy
+    idea = Idea.find(params[:id])
+    idea.destroy if user_owns_idea?(idea)
+    redirect_to user_path(current_user)
   end
 
   private

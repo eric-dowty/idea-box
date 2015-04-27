@@ -11,6 +11,10 @@
   <%= content_tag :div, message, id: "flash_#{type}" %>
 <% end %>
 
+<% if current_user %>
+  <%= button_to "Logout", logout_path, method: :delete %>
+<% end %>
+
 <div class="container-fluid">
 <%= yield %>
 </div>

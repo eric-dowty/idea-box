@@ -18,7 +18,7 @@ RSpec.describe "login page" do
       expect(page).to have_content("Welcome Tracy")
       expect(page).to have_content("View Categories")
       expect(page).to have_content("View Users")
-      expect(page).to have_content("Logout")
+      expect(page).to have_button("Logout")
     end
 
     it "logs in an user" do
@@ -33,7 +33,7 @@ RSpec.describe "login page" do
       click_button "Login"
 
       expect(page).to have_content("Welcome Tracy")
-      expect(page).to have_content("Logout")
+      expect(page).to have_button("Logout")
     end
   end
 

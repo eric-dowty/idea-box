@@ -1,5 +1,7 @@
 class SessionsController < ApplicationController
 
+  before_filter :current_user
+
   def new
   end
 
@@ -13,6 +15,12 @@ class SessionsController < ApplicationController
       flash[:error] = "Invalid login."
       render :new
     end
+  end
+
+  def destroy
+    session.clear
+    flash[:notice] = "Logout successful"
+    redirect_to login_path
   end
 
   private

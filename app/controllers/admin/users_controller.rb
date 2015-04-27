@@ -1,5 +1,7 @@
 class Admin::UsersController < Admin::BaseController
 
+  before_filter :current_admin?
+
   def show
     @user = User.find_by(username: params[:id])
   end
