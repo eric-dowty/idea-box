@@ -1,5 +1,5 @@
 <p><%= @idea.title %></p>
 <p><%= @idea.description %></p>
-<p><%= Category.find_by(id: @idea.category_id).name %></p>
+<p><%= Category.find(@idea.category_id).name %></p>
 
 <%= link_to "<< back to ideas", user_path(current_user) %>

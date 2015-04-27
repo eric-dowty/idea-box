@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   end
 
   def current_admin?
-    current_user && current_user.admin?
+    redirect_to root_path unless current_user && current_user.admin?
   end
 
   def user_owns_idea?(idea)
